@@ -1,7 +1,9 @@
 # learn-log
 
 This repo is aimed to summarize my learnings as I discover and/or dig into new topics, or just to serve as a history of interesting articles that I find around the internet.
+
 At the moment, topics will be limited to the field of machine learning.
+See [ml-concepts.md](./ml-concepts.md) for a quick summary of certain concepts.
 
 Here is a list of interesting places to discover interesting developments, or great explainer articles:
 - [r/ml What are you Reading](https://www.reddit.com/r/MachineLearning/comments/807ex4/d_machine_learning_wayr_what_are_you_reading_week/) - A thread in machine learning subreddit that discuss interesting papers, new and old
