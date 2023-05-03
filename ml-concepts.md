@@ -33,3 +33,5 @@ Lists a bunch of concepts in random order.
 - [Inductive bias](https://en.wikipedia.org/wiki/Inductive_bias)
   - A set of assumptions the model uses to make predictions of unseen inputs (think: inter- and extra-polation)
   - Example: "Occam's razor," assuming that the simplest consistent hypothesis is the best
+- [Feature selection](https://github.com/johncf/learn-log/blob/master/2023-05-01.md#feature-selection)
+- [Feature extraction](https://github.com/johncf/learn-log/blob/master/2023-05-01.md#feature-extraction)
