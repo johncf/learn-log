@@ -38,7 +38,12 @@ Source: [Intro to ML in Production](https://www.coursera.org/learn/introduction-
    - Error analysis
      - Try to give meaningful context "tags" for the mistakes
      - Compare with baseline performance for each tag
-   - How to estimate and tune confidence?
+     - Estimate model uncertainty (confidence); how to calibrate confidence?
+   - Iterate with changes to models, hyperparameters, dataset, data augmentation, feature-set, etc.
+     - Have good experiment tracking (MLOps) system with:
+       - Replicability/reproducibility (hyperparameters, dataset metadata, code/library versions etc.)
+       - Results, error analysis, and summary metrics
+       - Resource monitoring
 1. Deployment: deploy, then monitor & maintain
    - Shadow-mode (parallel) deployment, Canary (gradual ramp-up) deployment
    - Monitoring:
