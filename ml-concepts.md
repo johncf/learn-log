@@ -11,7 +11,7 @@ Here's a list of ML-related concepts in random order:
   - Variance:
     - a type of error that gets introduced when the model is too sensitive to variations in training data
     - i.e. over-fitting, resulting in an inability to generalize properly
-- Confidence calibration ([TODO](https://wttech.blog/blog/2021/a-guide-to-model-calibration/))
+- [Confidence estimation](https://github.com/johncf/learn-log/blob/master/2023-05-22.md#confidence-estimation)
 - Cross-validation ([wiki](https://en.wikipedia.org/wiki/Cross-validation_%28statistics%29))
   - Used to estimate how well a model will generalize
   - Perform multiple rounds of training and validation using different partitions of the same set of data
