@@ -40,10 +40,11 @@ Source: [Intro to ML in Production](https://www.coursera.org/learn/introduction-
      - Compare with baseline performance for each tag
      - Estimate model uncertainty (confidence); how to calibrate confidence?
    - Iterate with changes to models, hyperparameters, dataset, data augmentation, feature-set, etc.
-     - Have good experiment tracking (MLOps) system with:
+     - Have good experiment tracking system with:
        - Replicability/reproducibility (hyperparameters, dataset metadata, code/library versions etc.)
        - Results, error analysis, and summary metrics
        - Resource monitoring
+     - Keeping history of failed experiments is as important as that of successful experiments
 1. Deployment: deploy, then monitor & maintain
    - Shadow-mode (parallel) deployment, Canary (gradual ramp-up) deployment
    - Monitoring:
@@ -52,3 +53,5 @@ Source: [Intro to ML in Production](https://www.coursera.org/learn/introduction-
      - output metrics (fraction of missing values, is null/empty/error)
      - user behavior (rerunning, switching to manual mode etc.)
      - set thresholds for notifications/alarms (for detecting drifts etc.)
+
+A good set of [MLOps tools](https://github.com/johncf/learn-log/blob/master/2023-05-22.md#mlops-tools) should make these steps as effortless as possible.
