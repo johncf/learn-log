@@ -4,9 +4,14 @@
 
 1. Exploration phase:
    - Brainstorm ideas, set goals, identify risks
-   - Functional specifications: project and scope; use-cases and non-goals; assumptions, risks and feasibility; possible solutions and requirements; defining milestones, etc.
    - Data exploration; quick prototyping etc.
+   - Functional specifications
+     - Project and scope: use-cases and non-goals
+     - Assumptions, risks and feasibility
+     - Possible solutions and requirements
+     - Define milestones
 1. Design phase: use case diagram, API design, API sequence diagrams, class diagrams, database design etc.
+   - Update functional specifications and milestones if needed
 1. Implementation phase: parallel implementation of various parts, with unit tests
 1. Quality check phase: writing extensive integration tests, verification
 1. Deployment phase: ensure proper monitoring, updateability, backups, revertibility etc.
