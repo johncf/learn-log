@@ -11,6 +11,10 @@ Here's a list of ML-related concepts in random order:
   - Variance:
     - a type of error that gets introduced when the model is too sensitive to variations in training data
     - i.e. over-fitting, resulting in an inability to generalize properly
+  - When training a model, the objective function is defined as the sum of *training loss* and *regularization*.
+    - The training loss is responsible for making the model predict correctly on the training set, thus encouraging reduction in bias.
+    - The regularization term is responsible for keeping the model simple, thus encouraging reduction in variance.
+  - Also see [Occam's razor](https://en.wikipedia.org/wiki/Occam's_razor): "The simplest explanation is usually the best one."
 - [Confidence estimation](https://github.com/johncf/learn-log/blob/master/2023-05-22.md#confidence-estimation)
 - Cross-validation ([wiki](https://en.wikipedia.org/wiki/Cross-validation_%28statistics%29))
   - Used to estimate how well a model will generalize
