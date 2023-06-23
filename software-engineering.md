@@ -2,19 +2,24 @@
 
 ### Software Development Lifecycle
 
+1. Requirements analysis phase:
+   - Understand high-level goals
+   - Functional requirements
+     - Scope: use-cases and non-goals
+     - Feature specifications to meet the use-cases
+   - Non-functional requirements
+     - Scalability and performance goals (# of users, latency, etc.),
+     - Security and privacy standards
+   - Set milestones for each phase
 1. Exploration phase:
-   - Brainstorm ideas, set goals, identify risks
-   - Data exploration; quick prototyping etc.
-   - Functional specifications
-     - Project and scope: use-cases and non-goals
-     - Assumptions, risks and feasibility
-     - Possible solutions and requirements
-     - Define milestones
-1. Design phase: use case diagram, API design, API sequence diagrams, class diagrams, database design etc.
-   - Update functional specifications and milestones if needed
-1. Implementation phase: parallel implementation of various parts, with unit tests
+   - Brainstorm ideas, data exploration, quick prototyping etc.
+   - Identify risks and understand feasibility
+1. Design and implementation phase:
+   - Document the process properly using:
+     - Use-case diagrams, API design, API sequence diagrams, class diagrams, database design etc.
+   - Follow test-driven development (or [another philosophy](https://en.wikipedia.org/wiki/List_of_software_development_philosophies))
 1. Quality check phase: writing extensive integration tests, verification
-1. Deployment phase: ensure proper monitoring, updateability, backups, revertibility etc.
+1. Deployment and maintenance phase: ensure proper monitoring, updateability, backups, revertibility etc.
 
 Different project management aproaches:
 
