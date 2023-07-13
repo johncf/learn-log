@@ -13,8 +13,10 @@ Here's a list of ML-related concepts in random order:
     - i.e. over-fitting, resulting in an inability to generalize properly
   - When training a model, the objective function is defined as the sum of *training loss* and *regularization*.
     - The training loss is responsible for making the model predict correctly on the training set, thus encouraging reduction in bias.
-    - The regularization term is responsible for keeping the model simple, thus encouraging reduction in variance.
-  - Also see [Occam's razor](https://en.wikipedia.org/wiki/Occam's_razor): "The simplest explanation is usually the best one."
+    - The regularization term is responsible for keeping the model simple, thus encouraging reduction in variance. (Also helps [improve training stability](https://github.com/johncf/learn-log/blob/master/2023-07-10.md#regularization).)
+  - Inductive bias ([wiki](https://en.wikipedia.org/wiki/Inductive_bias))
+    - A set of assumptions the model uses to make predictions of unseen inputs (think: inter- and extra-polation)
+  - Also see [Occam's razor](https://en.wikipedia.org/wiki/Occam's_razor): "The simplest (consistent) explanation is usually the best one."
 - [Confidence estimation](https://github.com/johncf/learn-log/blob/master/2023-05-22.md#confidence-estimation)
 - Cross-validation ([wiki](https://en.wikipedia.org/wiki/Cross-validation_%28statistics%29))
   - Used to estimate how well a model will generalize
@@ -25,7 +27,4 @@ Here's a list of ML-related concepts in random order:
     - Will need relabeling of original training data or discarding them and collect new data
 - [Feature selection](https://github.com/johncf/learn-log/blob/master/2023-05-01.md#feature-selection)
 - [Feature extraction](https://github.com/johncf/learn-log/blob/master/2023-05-01.md#feature-extraction)
-- Inductive bias ([wiki](https://en.wikipedia.org/wiki/Inductive_bias))
-  - A set of assumptions the model uses to make predictions of unseen inputs (think: inter- and extra-polation)
-  - Example: "Occam's razor," assuming that the simplest consistent hypothesis is the best
 - [Data Visualization](https://github.com/johncf/learn-log/blob/master/2023-05-01.md#data-visualization)
