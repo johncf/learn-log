@@ -1,7 +1,5 @@
 # Machine Learning Concepts
 
-*Also see [Software Engineering](https://github.com/johncf/learn-log/blob/master/software-engineering.md)*
-
 Here's a list of ML-related concepts in random order:
 
 - Bias and Variance
