@@ -64,4 +64,4 @@ Source: [Intro to ML in Production](https://www.coursera.org/learn/introduction-
      - user behavior (rerunning, switching to manual mode etc.)
      - set thresholds for notifications/alarms (for detecting drifts etc.)
 
-A good set of [MLOps tools](https://github.com/johncf/learn-log/blob/master/2023-05-22.md#mlops-tools) should make these steps as effortless as possible.
+A good set of [MLOps tools](https://github.com/johncf/learn-log/blob/master/2023-05.md#mlops-tools) should make these steps as effortless as possible.
