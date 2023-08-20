@@ -11,10 +11,10 @@
 
 ## Meetings
 
-- \[meeting-code] Meeting Title
-  - Remarks: [short comment on the meeting's utility for yourself]
-- \[M-8zj4-g] Manager 1on1
-  - Remarks: raised/clarified some of my work-related concerns
+- Meeting Title ([details](link to agenda and outcomes))
+  - [short comment on the meeting's utility for yourself]
+- Manager 1on1
+  - Raised/clarified some of my work-related concerns
 
 ## Summary
 
