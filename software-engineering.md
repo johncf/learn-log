@@ -38,13 +38,15 @@ Source: [Intro to ML in Production](https://www.coursera.org/learn/introduction-
    - Define inputs and targets; establish rules to minimize inconsistencies
    - Explore usability of publicly available datasets
    - Collect, label and organize
-1. Modeling: baseline, select, train, evaluate
+1. Baseline: establish a goal
    - Define various useful metrics for evaluation (e.g.: F-score)
    - Establish baseline performance
      - Human Level Performance (HLP) for unstructured data (image, audio, natural language)
      - Performance of a quick prototype (using a small model, or a public model), or older model
-   - When selecting a model, ensure model is powerful enough
-     - Train to over-fit the model on a small subset of data
+1. Modeling: select, train, evaluate
+   - Model selection
+     - Consider factors: model complexity, interpretability, computational cost, etc.
+     - Test for low bias: train to over-fit the model on a tiny set of data
    - Error analysis
      - Try to give meaningful context "tags" for the mistakes
      - Compare with baseline performance for each tag
@@ -57,11 +59,11 @@ Source: [Intro to ML in Production](https://www.coursera.org/learn/introduction-
      - Keeping history of failed experiments is as important as that of successful experiments
 1. Deployment: deploy, then monitor & maintain
    - Shadow-mode (parallel) deployment, Canary (gradual ramp-up) deployment
-   - Monitoring:
-     - software metrics (memory, compute, latency etc.)
-     - input metrics (input length, fraction of missing values, image brightness)
-     - output metrics (fraction of missing values, is null/empty/error)
-     - user behavior (rerunning, switching to manual mode etc.)
-     - set thresholds for notifications/alarms (for detecting drifts etc.)
+1. Monitoring: to detect data drift and concept drift
+   - software metrics (memory, compute, latency etc.)
+   - input metrics (input length, fraction of missing values, image brightness)
+   - output metrics (fraction of missing values, is null/empty/error)
+   - user behavior (rerunning, switching to manual mode etc.)
+   - set thresholds for notifications/alarms (for detecting drifts etc.)
 
 A good set of [MLOps tools](https://github.com/johncf/learn-log/blob/master/2023-05.md#mlops-tools) should make these steps as effortless as possible.
