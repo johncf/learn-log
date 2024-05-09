@@ -17,8 +17,10 @@ Here's a list of ML-related concepts in random order:
 
 - [Self-supervised Learning](https://www.ibm.com/topics/self-supervised-learning): to learn useful representations or features from the data that can be fine-tuned for specific downstream tasks.
   - Uses a supervised learning method on unlabeled data by automatically generating supervisory signals based on the structure of the data.
-  - TODO
-  - Almost all LLM pre-training is an example of this.
+  - This is used in "pretext tasks" to learn meaningful representations of unstructured data.
+  - Learned representations are then used in "downstream tasks" with supervised learning or reinforcement learning.
+  - Two kinds: Self-predictive learning (e.g. autoencoders) and Contrastive learning (e.g. CLIP).
+  - Examples: Transformer-based LLMs like BERT and GPT, image synthesis models like variational autoencoders (VAEs) and GANs to computer vision models like SimCLR and Momentum Contrast (MoCo).
 
 - [Reinforcement Learning](https://www.ibm.com/topics/reinforcement-learning): to train an agent to make optimal decisions by interacting with an environment through trial-and-error.
   - TODO
