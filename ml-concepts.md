@@ -22,8 +22,13 @@ Here's a list of ML-related concepts in random order:
   - Two kinds: Self-predictive learning (e.g. autoencoders) and Contrastive learning (e.g. CLIP).
   - Examples: Transformer-based LLMs like BERT and GPT, image synthesis models like variational autoencoders (VAEs) and GANs to computer vision models like SimCLR and Momentum Contrast (MoCo).
 
-- [Reinforcement Learning](https://www.ibm.com/topics/reinforcement-learning): to train an agent to make optimal decisions by interacting with an environment through trial-and-error.
-  - TODO
+- [Reinforcement Learning](https://www.ibm.com/topics/reinforcement-learning): to train an autonomous agent to make optimal decisions and act in response to its environment, through trial-and-error.
+  - Addresses sequential decision-making problems in uncertain and dynamic environments.
+  - Literature widely formulates this relationship in terms of the Markov decision process (MDP).
+  - Basic design: An "Agent" interacts with an "Environment" by taking a series of "Actions", each affecting the "State". The agent receives a "Reward" for each Action, a feedback signal designed to guide the agent towards a desired goal or to enforce certain behavior.
+  - An algorithm (e.g. Q-learning) is used to positively reinforce action-sequences that maximize rewards.
+  - Exploration-exploitation trade-off: a parameter that controls the ratio of actions that "explores new/unknown states" or "exploits prior knowledge to maximize rewards".
+  - Components: Reward signals (pre-defined), Policy (learnt, agent behavior), Value function (optional, learnt, expected future rewards for a state or a state-action pair), and Model (optional, pre-trained, to model the environment).
 
 - Model Selection
   - Consider factors: model complexity, interpretability, computational cost, etc.
