@@ -44,9 +44,7 @@ Source: [Intro to ML in Production](https://www.coursera.org/learn/introduction-
      - Human Level Performance (HLP) for unstructured data (image, audio, natural language)
      - Performance of a quick prototype (using a small model, or a public model), or older model
 1. Modeling: select, train, evaluate
-   - Model selection
-     - Consider factors: model complexity, interpretability, computational cost, etc.
-     - Test for low bias: train to over-fit the model on a tiny set of data
+   - [Model selection](https://github.com/johncf/learn-log/blob/master/ml-concepts.md#model-selection)
    - Error analysis
      - Try to give meaningful context "tags" for the mistakes
      - Compare with baseline performance for each tag

@@ -2,6 +2,8 @@
 
 Here's a list of ML-related concepts in random order:
 
+## Types of Learning
+
 - [Supervised Learning](https://www.ibm.com/topics/supervised-learning): to approximate a function that maps inputs to outputs based on example input-output pairs.
   - Regression: to predict a continuous output variable (e.g., housing prices)
   - Classification: to predict a categorical output variable (e.g., cat vs. dog images)
@@ -30,40 +32,54 @@ Here's a list of ML-related concepts in random order:
   - Exploration-exploitation trade-off: a parameter that controls the ratio of actions that "explores new/unknown states" or "exploits prior knowledge to maximize rewards".
   - Components: Reward signals (pre-defined), Policy (learnt, agent behavior), Value function (optional, learnt, expected future rewards for a state or a state-action pair), and Model (optional, pre-trained, to model the environment).
 
-- Model Selection
-  - Consider factors: model complexity, interpretability, computational cost, etc.
-  - Test for low bias: train to over-fit the model on a tiny set of data, to ensure the model is powerful enough.
+## Model Selection
 
-- Model Training and Loss Functions
-  - Regularization: Techniques used to keep the model simple. E.g., L1 Regularization (Lasso), L2 Regularization (Ridge), Dropout, etc.
+- Consider factors: model complexity, interpretability, computational cost, robustness etc.
+- Test for low bias: train to over-fit the model on a tiny set of data, to ensure the model is powerful enough.
+- Cross-validation ([wiki](https://en.wikipedia.org/wiki/Cross-validation_%28statistics%29))
+  - Used to estimate model (or training) robustness, or how well it generalizes
+  - Perform multiple rounds of training and validation using different partitions of the same set of data
+- Akaike information criterion (AIC, [wiki](https://en.wikipedia.org/wiki/Akaike_information_criterion))
+  - A relative score to compare different models on the same dataset.
+  - TODO
+
+## Model Training
+
+- Cost function: the function that we optimize during training
+  - Cost function = Loss function(s) + Regularization
+- Loss function: the penalty for a prediction
   - Regression models: L2 Loss, L1 Loss, Lp Loss, Cosine Similarity, Huber Loss, etc.
   - Classification models: Cross-Entropy Loss, KL Divergence, Hinge Loss, etc.
   - Sequence models: CTC Loss, etc.?
+- Regularization: the penalty for model complexity, to keep the model simple.
+  - E.g., L1 Regularization (Lasso), L2 Regularization (Ridge), Dropout, etc.
+  - See [extra notes](https://github.com/johncf/learn-log/blob/master/2023-07.md#regularization).
 
-- Model Evaluation
-  - Regression models: Mean Squared Error (MSE), Mean Absolute Error (MAE), R-Squared, etc.
-  - Classification models: Accuracy, Precision, Recall, F1-score, ROC curve and AUC, etc.
-  - Language models: Perplexity, ROUGE score, BLEU score, etc.
-  - Clustering models: Internal Evaluation (Silhouette coefficient etc.), External Evaluation (Purity etc.)
+## Model Evaluation
 
-- Bias and Variance
-  - Bias:
-    - a type of error that occurs due to wrong assumptions about data such as assuming data is linear when in reality, data follows a complex function
-    - i.e. under-fitting even when there's enough data for proper training
-  - Variance:
-    - a type of error that gets introduced when the model is too sensitive to variations in training data
-    - i.e. over-fitting, resulting in an inability to generalize properly
-  - When training a model, the objective function is defined as the sum of *training loss* and *regularization*.
-    - The training loss is responsible for making the model predict correctly on the training set, thus encouraging reduction in bias.
-    - The regularization term is responsible for keeping the model simple, thus encouraging reduction in variance. (Also helps [improve training stability](https://github.com/johncf/learn-log/blob/master/2023-07.md#regularization).)
-  - Inductive bias ([wiki](https://en.wikipedia.org/wiki/Inductive_bias))
-    - A set of assumptions the model uses to make predictions of unseen inputs (think: inter- and extra-polation)
-  - Also see [Occam's razor](https://en.wikipedia.org/wiki/Occam's_razor): "The simplest (consistent) explanation is usually the best one."
+- Regression models: Mean Squared Error (MSE), Mean Absolute Error (MAE), R-Squared, etc.
+- Classification models: Accuracy, Precision, Recall, F1-score, ROC curve and AUC, etc.
+- Language models: Perplexity, ROUGE score, BLEU score, etc.
+- Clustering models: Internal Evaluation (Silhouette coefficient etc.), External Evaluation (Purity etc.)
+
+## Bias and Variance
+
+- Bias:
+  - a type of error that occurs due to wrong assumptions about data such as assuming data is linear when in reality, data follows a complex function
+  - i.e. under-fitting even when there's enough data for proper training
+- Variance:
+  - a type of error that gets introduced when the model is too sensitive to variations in training data
+  - i.e. over-fitting, resulting in an inability to generalize properly
+- When training a model, the objective/cost function is the sum of *loss function* and *regularization*.
+  - The loss function penalizes the model for incorrect predictions (on the training set), thus encouraging reduction in bias.
+  - The regularization term is responsible for keeping the model simple, thus encouraging reduction in variance. (Also helps [improve training stability](https://github.com/johncf/learn-log/blob/master/2023-07.md#regularization).)
+- Inductive bias ([wiki](https://en.wikipedia.org/wiki/Inductive_bias))
+  - A set of assumptions the model uses to make predictions of unseen inputs (think: inter- and extra-polation)
+- Also see [Occam's razor](https://en.wikipedia.org/wiki/Occam's_razor): "The simplest (consistent) explanation is usually the best one."
+
+## Miscellaneous
 
 - [Confidence estimation](https://github.com/johncf/learn-log/blob/master/2023-05.md#confidence-estimation)
-- Cross-validation ([wiki](https://en.wikipedia.org/wiki/Cross-validation_%28statistics%29))
-  - Used to estimate how well a model will generalize
-  - Perform multiple rounds of training and validation using different partitions of the same set of data
 - Data and Concept drift
   - Data drift: Input data seen in production has shifted from data used in training
   - Concept drift: Mapping from input to expected output has changed (compared to training)
