@@ -1,9 +1,10 @@
-## Software Engineering
+# Software Engineering
 
-### Software Development Lifecycle
+## Software Development Lifecycle
 
-1. Requirements analysis phase:
+1. Objective definition phase:
    - Understand high-level goals
+1. Requirements analysis phase:
    - Functional requirements
      - Scope: use-cases and non-goals
      - Feature specifications to meet the use-cases
@@ -11,24 +12,28 @@
      - Scalability and performance goals (# of users, latency, etc.),
      - Security and privacy standards
    - Set milestones for each phase
-1. Exploration phase:
+1. Design and exploration phase:
    - Brainstorm ideas, data exploration, quick prototyping etc.
    - Identify risks and understand feasibility
-1. Design and implementation phase:
-   - Document the process properly using:
-     - Use-case diagrams, API design, API sequence diagrams, class diagrams, database design etc.
-   - Follow test-driven development (or [another philosophy](https://en.wikipedia.org/wiki/List_of_software_development_philosophies))
+   - Document the process properly, and plan ahead using:
+     - Use-case diagrams
+     - Architecture diagrams
+     - API design and sequence diagrams
+     - Optionally also class diagrams, database design etc.
+1. Implementation phase:
+   - Define deliverables and acceptance criteria
+   - Project breakdown: into smaller tasks and milestones
+   - Roles and responsibilities: who is responsible for what
+   - Project scheduling: estimate timeline for each milestone (and task)
+   - Risk assessment and contingency measures: what might go wrong, possible alternate plans
+   - Resource allocation and assign (soft) deadlines
+   - Follow [a development philosophy][sw-dev-phils]
 1. Quality check phase: writing extensive integration tests, verification
-1. Deployment and maintenance phase: ensure proper monitoring, updateability, backups, revertibility etc.
+1. Maintenance phase: ensure proper monitoring, updateability, revertibility (backups) etc.
 
-Different project management aproaches:
+[sw-dev-phils]: https://en.wikipedia.org/wiki/List_of_software_development_philosophies
 
-- **Waterfall model**: go through each phase, one at a time, in-detail. Slow deliveries, and may not keep up with changing requirements.
-- **Agile model**: very short design phase; prototyping and implementation may happen simultaneously; short quality check phase. Fast deliveries, but possibly more maintenance cost due to higher chances of bugs and inflexible design decisions
-- **Iterative model**: divide the project into several small deliverable milestones. Faster deliveries and user feedback opportunities. May need clever simplifications; may not always be possible to design a small deliverable for each step.
-- **Spiral model**: similar to iterative model?
-
-### Machine Learning Project Lifecycle
+## Machine Learning Project Lifecycle
 
 Source: [Intro to ML in Production](https://www.coursera.org/learn/introduction-to-machine-learning-in-production)
 
