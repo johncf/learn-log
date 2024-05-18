@@ -13,14 +13,21 @@ Tackling the system design interview.
    - Assumptions (e.g. read-write ratio)
    - Compute effective requests rates to be handled
 1. High-level design (10 minutes)
-   - Basic components of the system (Load balancers, CDN, Cache, DB, Services, etc.)
+   - Basic components of the system (load balancers, caching systems, DB, etc.)
+   - List required services
    - Choices of each component are *not* explored (e.g. MySQL vs. MongoDB)
-1. Design deep-dive and improvements (15 minutes)
-   - Issues that could happen with a component
-   - Choices of component or component-design that could resolve the issue
-   - Example: design of distributed databases, design of caching, work orchestration etc.
+   - Design end-user APIs to meet functional requirements
+1. Component design (10 minutes)
+   - Component specific APIs or internal design (e.g. database schema)
+   - Analyze the need for database replication, database partitioning + map-reduce for aggregation
+   - Discuss caching options (e.g. CDN, database caching, in-memory caching)
    - Do NOT discuss anything outside established scope
+1. Understanding bottlenecks and improvements (5 minutes)
+   - Issues that could happen with a component (e.g. a "celebrity" user)
+   - Modifications that could resolve the issue
 1. Evaluation and wrap-up (5 minutes)
    - Quick overview of the design and why it can handle the scale.
 
-Source: [Video from ByteByteGo](https://www.youtube.com/watch?v=i7twT3x5yv8)
+Sources:
+- [Video from ByteByteGo](https://www.youtube.com/watch?v=i7twT3x5yv8)
+- [Cheat sheet in the wild](https://gist.github.com/vasanthk/485d1c25737e8e72759f)
