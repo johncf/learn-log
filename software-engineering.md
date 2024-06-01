@@ -39,15 +39,16 @@ Source: [Intro to ML in Production](https://www.coursera.org/learn/introduction-
 
 1. Scoping: define the project and constraints
    - Constraints: realtime or batched, cloud or edge/browser, compute resources, latency, privacy
+1. Baseline: establish a goal
+   - Define various useful metrics for evaluation (e.g.: F-score)
+   - Collect and label a small test dataset for which the model must do well on
+   - Establish baseline performance
+     - Human Level Performance (HLP) for unstructured data (image, audio, natural language)
+     - Performance of a quick prototype (using a small model, or a public model), or older model
 1. Data: define, explore, collect
    - Define inputs and targets; establish rules to minimize inconsistencies
    - Explore usability of publicly available datasets
    - Collect, label and organize
-1. Baseline: establish a goal
-   - Define various useful metrics for evaluation (e.g.: F-score)
-   - Establish baseline performance
-     - Human Level Performance (HLP) for unstructured data (image, audio, natural language)
-     - Performance of a quick prototype (using a small model, or a public model), or older model
 1. Modeling: select, train, evaluate
    - [Model selection](https://github.com/johncf/learn-log/blob/master/ml-concepts.md#model-selection)
    - Error analysis

@@ -9,7 +9,7 @@ Here's a list of ML-related concepts in random order:
   - Classification: to predict a categorical output variable (e.g., cat vs. dog images)
 
 - [Unsupervised Learning](https://www.ibm.com/topics/unsupervised-learning): to build a concise representation of, or find patterns in some set of data.
-  - Clustering: to group data based on their similarities and differences. (e.g., Hierarchical clustering)
+  - Clustering: to group data based on their similarities and differences. (e.g., k-Means clustering, EM clustering)
   - Association Rule Learning: to find interesting relations between features/variables in a dataset, in order to discover the rules that determine how or why certain items are connected. (e.g., Apriori algorithm)
   - Dimensionality Reduction: to compress high-dimensional data into lower dimensions with minimal loss of information. (e.g., PCA, Isomap, Autoencoders)
 
