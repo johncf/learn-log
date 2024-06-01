@@ -50,7 +50,88 @@ Tackling the system design interview.
 - Which parts of data will need strict consistency? Is eventual consistency enough?
 - Will there be bursts of requests due to popularity spikes? (Queues could be used to manage spikes)
 
+## Key Components Explained
+
+### Load Balancers
+
+Helps with horizontal scaling, by distributing traffic across multiple servers of the same kind.
+
+- Could be placed between user and web server, web server and internal services or databases.
+- Algorithms used for balancing: static ("round robin", "IP hash"), dynamic ("least connection", "least response time", "resource-based"), and their weighted variants.
+- Implementations: "DNS-based LB", "Hardware LB", "Software LB"
+
+### Proxy Servers
+
+A server sitting between the client and server that may do one or more of the following:
+
+- Filter requests
+- Log requests
+- Transform requests
+- Batch requests
+- Cache responses
+
+### Caching
+
+- May exist at all levels in architecture.
+- A short-lived copy that is faster to access than the original source.
+- Cache eviction: Removal of a cached entry to make space for another.
+- Cache invalidation: marking a cache entry as stale/invalid due to the original source having changed.
+- Cache consistency: probability of getting stale data.
+- Example use-case: Content Delivery Network (CDN) for caching static data (e.g., photos or videos).
+- Example use-case: Database cache (e.g., using Memcached) to speed-up certain database read-queries.
+
+#### Cache Invalidation Strategies
+
+- *Write through cache*: Writes go through the cache, succeeding only if writes to both the source and the cache succeed.
+  - High write latency, high cache consistency _and_ low read latency due to fewer cache misses.
+- *Write around cache*: Writes go directly to the source.
+  - Low write latency, low cache consistency _or_ high read latency due to higher cache misses.
+- *Write back cache*: Writes only done to the cache, and cache syncs to the source later.
+  - Low write latency, low read latency, high cache consistency, but increased risk of data loss.
+
+#### Cache Eviction Policies
+
+- Least Recently Used (LRU): The least recently accessed entry gets evicted.
+- First In First Out (FIFO): The least recently added entry gets evicted.
+- Random Replacement (RR): Randomly discards an entry.
+- [S3-FIFO](https://s3fifo.com/): A 2023 algorithm that uses 3 FIFO queues, and is more efficient and scalable than LRU.
+- [SIEVE](https://sievecache.com/): A 2024 algorithm that's authored by the same group from S3-FIFO.
+- Least Frequently Uesd (LFU): The one with lowest access count gets evicted. Rarely used as is due to issues.
+- Most Recently Used (MRU): The most recently accessed gets evicted! Only useful in niche scenarios.
+- Last In First Out (LIFO): The most recently added gets evicted! Only useful in scenarios where MRU is useful.
+
+### Message Queues
+
+- To decouple "processing" from "data producers".
+- Use-case: logging to a message stream, with a pub-sub model.
+- Use-case: activity and operational monitoring (page views, searches, etc.) for analytics and reporting.
+- Use-case: stream processing or data-pipeline orchestration.
+- Use-case: posting a tweet on Twitter -- would be hard to update all followers' feeds instantly. So queue it up for eventual update.
+
+### Databases
+
+- [CAP theorem](https://en.wikipedia.org/wiki/CAP_theorem): choose 2 out of "Consistency", "Availability" and "Partition Tolerance".
+- Most traditional SQL databases are Consistent and Available, and also provide [ACID](https://en.wikipedia.org/wiki/ACID) guarantees.
+- Many distributed databases are also ACID-compliant. They choose "Consistency" over "Availability".
+- Distributed databases that use [Eventual Consistency](https://en.wikipedia.org/wiki/Eventual_consistency) as their consistency model choose "Availability" over "Consistency".
+- Defining good indexes improve read/search performance, but reduce write-performance.
+- Horizontal partitioning (sharding): distributing different rows across multiple instances.
+  - Used to distribute the compute-workload.
+  - Indexes also need to be partitioned.
+- Vertical partitioning: distributing different columns across multiple instances.
+  - Used to group columns based on their access patterns (read or write-heavy).
+- Types of databases:
+  - Key-value stores. Example: Redis
+  - Document stores. Example: MongoDB, CouchDB
+  - Wide-column stores. Example: Cassandra, HBase, BigTable
+  - Graph databases. Example: Neo4j
+
+## Miscellaneous Topics
+
+- [Consistent hashing](https://en.wikipedia.org/wiki/Consistent_hashing)
+
 ## References
 
 - [Video from ByteByteGo](https://www.youtube.com/watch?v=i7twT3x5yv8)
-- [Cheat sheet in the wild](https://gist.github.com/vasanthk/485d1c25737e8e72759f)
+- [The Twitter Problem](https://www.hiredintech.com/system-design/the-twitter-problem/)
+- [URL Shortening Service](https://github.com/Jeevan-kumar-Raj/Grokking-System-Design/blob/master/designs/short-url.md)
