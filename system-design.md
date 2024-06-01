@@ -125,6 +125,7 @@ A server sitting between the client and server that may do one or more of the fo
   - Document stores. Example: MongoDB, CouchDB
   - Wide-column stores. Example: Cassandra, HBase, BigTable
   - Graph databases. Example: Neo4j
+- A [data warehouse](https://www.coursera.org/articles/data-warehouse) is a scalable service/solution built on top of some database(s), that provides data analysis capabilities. Example: Google BigQuery, Amazon RedShift
 
 ## Miscellaneous Topics
 
