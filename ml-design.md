@@ -20,21 +20,19 @@ Identify methods to collect training data. Analyze constraints / risks associate
   - What data do we already have?
     - User metadata: demographic data (gender, age-group, location)
     - Ad/post metadata: ad/post contents, tags/topics
-    - User engagement data: user-ad/post clicks, user-ad/post impressions without clicks, users own posts, etc.
+    - User engagement data: ad/post clicks/likes, ad/post impressions (with view-time), users own posts, etc.
   - What is the raw data that can be observed?
     - Example: stream of click events, stream of impression events, user-data in a database etc.
     - What kind of data can be collected? What kind of data processing/transformation pipelines do we need to build for it?
-- Training data recency and the problem of [Online-Offline Consistency](https://chronon.ai/test_deploy_serve/Online_Offline_Consistency.html)
 - Possibility of online learning
-- Minimizing bias in data
-- Class imbalances
 
 ## Feature Engineering
 
 Identifying the most important features for the specific task. Come up with relevant features (or feature engineering techniques) to train the model.
 
+- Handling missing feature values (data sparsity and feature coverage)
+- Cold start problem
 - Careful about [feature leakage](https://en.wikipedia.org/wiki/Leakage_%28machine_learning%29#Feature_leakage)
-- Handling missing feature values (feature coverage)
 
 ## Modeling
 
@@ -44,12 +42,31 @@ Explain the training process. Anticipate risks and mitigate them.
 - Clarifying questions:
   - What is the existing system? (This could be a baseline.)
 - Simple baseline model (or performance)
+  - A simple recommender system: random recommendations
   - A simple language model for information extraction: [bag-of-words](https://en.wikipedia.org/wiki/Bag-of-words_model)
+- Popular techniques:
+  - [Collaborative filtering](https://en.wikipedia.org/wiki/Collaborative_filtering) uses other users preferences to build recommendations for a user.
+    - User-based filtering (e.g. news feed in Instagram), item-based filtering (e.g. "bought together" in Amazon)
+    - Types: memory-based (similarity based on raw interaction history), model-based (similarity based on dimensionality-reduced interaction history), etc.
+  - [Content-based filtering](https://en.wikipedia.org/wiki/Recommender_system#Content-based_filtering) uses the description/contents of items to provide recommendations based on the user's profile and preferences.
+    - Embedding-based approach for users and items, and perhaps using a nearest-neighbor search.
+  - Hybrid approaches use collaborative and content-based filtering to improve recommendations.
+- Model: What to predict? What are the inputs?
+  - Probability of the user liking an ad/post. (A classification problem -- like or not liking.)
+  - Relevance of an ad/post to the user. (A regression problem -- user ratings from 1 to 5.)
+- Beyond accuracy (post-processing or re-ranking):
+  - Intra-list diversity: recommend items from different sources or topics
+  - Serendipity: recommend items that are outside the user's engagement history (a pleasant surprise)
+  - Novelty: recommend items that are unpopular (an underrated gem)
+  - Robustness: recommendation system must be resistant to manipulation (e.g. negative ratings to competitors)
+  - Context-awareness: time (morning vs. night, workday vs. holidays), location, type of device, etc.
+  - Persistence vs. Temporal diversity: both are important in different scenarios
+  - Bias: imbalances in training data can cause biased recommendation
+  - Filter bubble: intellectual isolation from opposing views makes the society more polarized
 - Model selection, influenced by features, data volume, interpretability requirements, and more.
-  - Fewer data -> linear models better
+  - Fewer data -> linear models fare better
   - Normalized (Cross) Entropy to compare models
     - See [Practical Lessons from Predicting Clicks on Ads at Facebook](https://research.facebook.com/publications/practical-lessons-from-predicting-clicks-on-ads-at-facebook/)
-- Train metrics: Area Under Curve (AUC), R square, precision, recall
 
 ## Evaluation & Deployment
 
@@ -57,14 +74,19 @@ Consistent evaluation and deployment techniques.
 Justify and articulate the choice of metrics to track.
 
 - Offline evaluation
+  - Example: Recall@k, Mean Reciprocal Rank (MRR), Mean Average Precision (mAP), Normalized Discounted Cumulative Gain (nDCG)
   - Progressive evaluation (train on days 1..n; evaluate on days n+1..n+k)
-  - Calibration
+  - With diversity re-rankings, it becomes difficult to evaluate offline
 - Online evaluation
-  - Detecting data drift
-  - A/B testing and CTR
+  - A/B testing: click-through rate (CTR), session-length over time (weeks), etc.
+  - Detecting data drift, and retraining base models
 - Debugging a failed model?
 - Continuous evaluation and deployment (daily updates?)
+- Training data recency and the problem of [Online-Offline Consistency](https://chronon.ai/test_deploy_serve/Online_Offline_Consistency.html)
 
 ## References
 
+- [Mock Interview: ML design to predict watch-times on Netflix](https://www.youtube.com/watch?v=BWlmFQ02DIU)
+- [Mock Interview: ML design to recommend artists on Spotify](https://www.youtube.com/watch?v=vyZMYlGBSBM)
+- [Evaluating Recommender and Ranking Systems](https://www.evidentlyai.com/ranking-metrics/evaluating-recommender-systems)
 - [Article suggested by a Meta recruiter](https://medium.com/@nrkivar/facebook-field-guide-to-ml-3056900e7930), but it's not very helpful.
