@@ -30,8 +30,11 @@ Identify methods to collect training data. Analyze constraints / risks associate
 
 Identifying the most important features for the specific task. Come up with relevant features (or feature engineering techniques) to train the model.
 
+- Selecting what features to use, and how to represent history of activity
+  - Simple examples: time of the day, day of the week, last viewed post(s), days since a post's upload, user/post language, number of previous impressions (without click), user's past history with posts from the same channel, etc.
+  - Complex example: average of embeddings of all posts that a user liked/clicked, [bag-of-words](https://en.wikipedia.org/wiki/Bag-of-words_model) representation of topics/tags a user interacted with
+- Also read section 4.1 of the paper, Deep Neural Networks for YouTube Recommendations (see References).
 - Handling missing feature values (data sparsity and feature coverage)
-- Cold start problem
 - Careful about [feature leakage](https://en.wikipedia.org/wiki/Leakage_%28machine_learning%29#Feature_leakage)
 
 ## Modeling
@@ -43,13 +46,13 @@ Explain the training process. Anticipate risks and mitigate them.
   - What is the existing system? (This could be a baseline.)
 - Simple baseline model (or performance)
   - A simple recommender system: random recommendations
-  - A simple language model for information extraction: [bag-of-words](https://en.wikipedia.org/wiki/Bag-of-words_model)
 - Popular techniques:
   - [Collaborative filtering](https://en.wikipedia.org/wiki/Collaborative_filtering) uses other users preferences to build recommendations for a user.
     - User-based filtering (e.g. news feed in Instagram), item-based filtering (e.g. "bought together" in Amazon)
-    - Types: memory-based (similarity based on raw interaction history), model-based (similarity based on dimensionality-reduced interaction history), etc.
+    - Types: memory-based (similarity based on raw interaction history), model-based (similarity based on dimensionality-reduced interaction history), hybrid, etc.
+    - Cons: Cannot handle fresh items since there are no interaction history associated with them.
   - [Content-based filtering](https://en.wikipedia.org/wiki/Recommender_system#Content-based_filtering) uses the description/contents of items to provide recommendations based on the user's profile and preferences.
-    - Embedding-based approach for users and items, and perhaps using a nearest-neighbor search.
+    - Embedding-based approach for items and users, and using a nearest-neighbor search or vector-similarity metrics to predict interest/relevance.
   - Hybrid approaches use collaborative and content-based filtering to improve recommendations.
 - Model: What to predict? What are the inputs?
   - Probability of the user liking an ad/post. (A classification problem -- like or not liking.)
@@ -88,5 +91,6 @@ Justify and articulate the choice of metrics to track.
 
 - [Mock Interview: ML design to predict watch-times on Netflix](https://www.youtube.com/watch?v=BWlmFQ02DIU)
 - [Mock Interview: ML design to recommend artists on Spotify](https://www.youtube.com/watch?v=vyZMYlGBSBM)
+- Paper: [Deep Neural Networks for YouTube Recommendations](https://dl.acm.org/doi/10.1145/2959100.2959190)
 - [Evaluating Recommender and Ranking Systems](https://www.evidentlyai.com/ranking-metrics/evaluating-recommender-systems)
 - [Article suggested by a Meta recruiter](https://medium.com/@nrkivar/facebook-field-guide-to-ml-3056900e7930), but it's not very helpful.
