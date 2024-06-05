@@ -10,7 +10,6 @@ Visualize and organize the entire problem and solution space.
   - Example: "improve user engagement", "improve profits without affecting user enjoyment"
 - Define proxy events, and business metrics based on them that can measure our progress.
   - Example: "sessions per week", "session length", "click-through rate", "revenue" (for ads), "daily active users" etc.
-  - We could even create a "not relevant" button to gather negative user-feedbacks.
 
 ## Training Data
 
@@ -24,6 +23,7 @@ Identify methods to collect training data. Analyze constraints / risks associate
   - What is the raw data that can be observed?
     - Example: stream of click events, stream of impression events, user-data in a database etc.
     - What kind of data can be collected? What kind of data processing/transformation pipelines do we need to build for it?
+    - We could even create a "not relevant" button to gather negative user-feedbacks.
 - Possibility of online learning
 
 ## Feature Engineering
@@ -48,9 +48,13 @@ Explain the training process. Anticipate risks and mitigate them.
   - A simple recommender system: random recommendations
 - Popular techniques:
   - [Collaborative filtering](https://en.wikipedia.org/wiki/Collaborative_filtering) uses other users preferences to build recommendations for a user.
-    - User-based filtering (e.g. news feed in Instagram), item-based filtering (e.g. "bought together" in Amazon)
-    - Types: memory-based (similarity based on raw interaction history), model-based (similarity based on dimensionality-reduced interaction history), hybrid, etc.
-    - Cons: Cannot handle fresh items since there are no interaction history associated with them.
+    - User-based filtering (possible example, news feed in Instagram), item-based filtering (possible example, "bought together" in Amazon)
+    - Types:
+      - Memory-based: similarity search based on user-item interaction matrix
+      - Model-based: similarity search based on dimensionality-reduced interaction history
+      - Hybrid and more...
+    - Similarity between two users could be measured using Pearson correlation (co-variance) or vector cosine (angular) or Jaccard coefficient (binary IoU) on the vector representation of their interaction history
+    - Cons: Cannot handle fresh items since there is no interaction history associated with them.
   - [Content-based filtering](https://en.wikipedia.org/wiki/Recommender_system#Content-based_filtering) uses the description/contents of items to provide recommendations based on the user's profile and preferences.
     - Embedding-based approach for items and users, and using a nearest-neighbor search or vector-similarity metrics to predict interest/relevance.
   - Hybrid approaches use collaborative and content-based filtering to improve recommendations.
@@ -89,8 +93,8 @@ Justify and articulate the choice of metrics to track.
 
 ## References
 
-- [Mock Interview: ML design to predict watch-times on Netflix](https://www.youtube.com/watch?v=BWlmFQ02DIU)
-- [Mock Interview: ML design to recommend artists on Spotify](https://www.youtube.com/watch?v=vyZMYlGBSBM)
 - Paper: [Deep Neural Networks for YouTube Recommendations](https://dl.acm.org/doi/10.1145/2959100.2959190)
+- [Mock Interview: ML design to recommend artists on Spotify](https://www.youtube.com/watch?v=vyZMYlGBSBM)
+- [Mock Interview: ML design to predict watch-times on Netflix](https://www.youtube.com/watch?v=BWlmFQ02DIU); the interviewee is a bit passive, which is not ideal, but he has good ideas
 - [Evaluating Recommender and Ranking Systems](https://www.evidentlyai.com/ranking-metrics/evaluating-recommender-systems)
 - [Article suggested by a Meta recruiter](https://medium.com/@nrkivar/facebook-field-guide-to-ml-3056900e7930), but it's not very helpful.
