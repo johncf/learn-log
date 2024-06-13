@@ -1,4 +1,4 @@
-# ML Design
+# ML Design Interview
 
 Tackling the ML design interview, with a focus on **recommender systems**.
 

@@ -6,8 +6,7 @@ At the moment, topics will be mostly limited to the field of machine learning.
 
 - See [ml-concepts.md](./ml-concepts.md) for a quick summary of certain concepts.
 - See [software-engineering.md](./software-engineering.md) for some notes on software/model development lifecycles.
-- See [system-design.md](./system-design.md) for revising system design interview topics.
-- See [ml-design.md](./ml-design.md) for revising ML design interview topics.
+- See [interview-tips](./interview-tips) directory for discussions on various interviews.
 - See [worklog-template.md](./worklog-template.md) for a template to organize and log your daily work.
 
 Here is a list of interesting places to discover interesting developments, or great explainer articles:
