@@ -2,6 +2,8 @@
 
 Tackling the system design interview.
 
+Do take a look at [general tips](./general.md) on problem solving first. (TLDR; make sure to consider different approaches and analyze its pros and cons, when choosing a design or component.)
+
 ## Basic Steps
 
 1. Understand requirements and establish scope (5 minutes)
@@ -135,4 +137,4 @@ A server sitting between the client and server that may do one or more of the fo
 
 - [Video from ByteByteGo](https://www.youtube.com/watch?v=i7twT3x5yv8)
 - [The Twitter Problem](https://www.hiredintech.com/system-design/the-twitter-problem/)
-- [URL Shortening Service](https://github.com/Jeevan-kumar-Raj/Grokking-System-Design/blob/master/designs/short-url.md)
+- [Biggest Mistakes to Avoid](https://www.youtube.com/watch?v=4Q2fokImKfM)
