@@ -2,7 +2,7 @@
 
 Tackling the system design interview.
 
-Do take a look at [general tips](./general.md) on problem solving first. (TLDR; make sure to consider different approaches and analyze its pros and cons, when choosing a design or component.)
+Do take a look at [general tips](./general.md) on problem solving first. (TLDR; make sure to consider different approaches and discuss its pros and cons, when choosing a design or component.)
 
 ## Basic Steps
 
@@ -10,15 +10,14 @@ Do take a look at [general tips](./general.md) on problem solving first. (TLDR; 
    - High-level objectives (use-cases)
    - Functional requirements (features)
    - Non-functional requirements (scale, latency, etc.)
-   - Technical constraints
 1. Capacity estimation and constraints (2 minutes)
    - Assumptions (e.g. read-write ratio)
-   - Compute effective requests rates to be handled
+   - Compute effective request rates to be handled
 1. High-level design (10 minutes)
-   - Basic components of the system (load balancers, caching systems, DB, etc.)
-   - List required services
-   - Choices of each component are *not* explored (e.g. MySQL vs. MongoDB)
    - Design end-user APIs to meet functional requirements
+   - Basic components of the system (load balancers, caching systems, DB, etc.)
+   - List required services (e.g., application server, logging service, etc.)
+   - Choices of each component are *not* explored (e.g. MySQL vs. MongoDB)
 1. Low-level/component design (10 minutes)
    - Component specific APIs or internal design (e.g. database schema)
    - Analyze the need for DB indexing, DB replication, DB partitioning + map-reduce for aggregation
@@ -30,7 +29,18 @@ Do take a look at [general tips](./general.md) on problem solving first. (TLDR; 
 1. Evaluation and wrap-up (5 minutes)
    - Quick overview of the design and why it can handle the scale.
 
-## Key Topics
+## Quick Tips
+
+- Breaking the problem into sub-problems is a big part of the interview!
+- Drive the conversation! Make sure to propose the design and suggest which part you could dive deeper into.
+- Make absolutely sure to discuss trade-offs and alternatives!
+- Try to find a part of the system that you're designing which you can draw from your previous experience, and discuss that in more detail (deep-dive).
+- Feel free to let the interviewer know the parts that you're unsure of.
+- Identify parts of the system that could be a bottleneck or a single-point-of-failure.
+
+Sources: [Intro to Architecture and System Design Interviews](https://www.youtube.com/watch?v=ZgdS0EUmn70); [5 Common Mistakes to Avoid](https://www.youtube.com/watch?v=ySfpftMZnoU&list=PLTCrU9sGyburBw9wNOHebv9SjlE4Elv5a&index=29)
+
+## Common Non-Functional Requirements
 
 - Availability: the probability that a system is operational at a given time
   - Example: stay operational even with partial internal network failures
@@ -40,8 +50,12 @@ Do take a look at [general tips](./general.md) on problem solving first. (TLDR; 
   - Strategies: built-in redundancies, replication, error monitoring
 - Performance: throughput, latency
   - Strategies: horizontal and vertical scaling, data partitioning, caching
-- Concurrency: locking, consistency
+- Concurrency: the ability of different parts to be executed out-of-order or in partial order, while continuining to function correctly.
+  - Strategies: locking, distributed consistency algorithms (RAFT or PAXOS)
+- Observability: the ability to collect data about programs' execution, modules' internal states, etc.
 - Serviceability or Maintainability: the speed with which a system can be repaired or maintained
+
+See [list of system quality attributes](https://en.wikipedia.org/wiki/List_of_system_quality_attributes) for a more complete list.
 
 ## Key Questions to Keep in Mind
 
