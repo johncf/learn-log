@@ -2,6 +2,8 @@
 
 Tackling the ML design interview, with a focus on **recommender systems**.
 
+Questions are generally open ended so you can dive deeper into the solution. It is important to design a solution thinking about data analysis, potential use cases, the users, scalability, limitations and tradeoffs.
+
 ## Problem Navigation
 
 Visualize and organize the entire problem and solution space.

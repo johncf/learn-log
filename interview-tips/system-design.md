@@ -68,6 +68,8 @@ See [list of system quality attributes](https://en.wikipedia.org/wiki/List_of_sy
 
 ## Key Components Explained
 
+Basics: [Lecture on Web Scalability by David Malan](https://www.youtube.com/watch?v=-W9F__D3oY4)
+
 ### Load Balancers
 
 Helps with horizontal scaling, by distributing traffic across multiple servers of the same kind.
@@ -146,9 +148,11 @@ A server sitting between the client and server that may do one or more of the fo
 ## Miscellaneous Topics
 
 - [Consistent hashing](https://en.wikipedia.org/wiki/Consistent_hashing)
+- [Count-min sketch](https://en.wikipedia.org/wiki/Count%E2%80%93min_sketch), a data structure that can serve as an approx. frequency table of events. This, combined with a min-heap, can be used to keep track of the top-k events (approx.) in a stream of data.
 
 ## References
 
 - [Video from ByteByteGo](https://www.youtube.com/watch?v=i7twT3x5yv8)
 - [The Twitter Problem](https://www.hiredintech.com/system-design/the-twitter-problem/)
 - [Biggest Mistakes to Avoid](https://www.youtube.com/watch?v=4Q2fokImKfM)
+- [Top K Problem (Heavy Hitters)](https://www.youtube.com/watch?v=kx-XDoPjoHw)
