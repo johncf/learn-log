@@ -136,8 +136,9 @@ A server sitting between the client and server that may do one or more of the fo
   - "Quorum Queues" can be given a replication factor to be fault-tolerant. Scaling up the cluster size beyond the replication factor will see an improvement in throughput only when there are many independent queues. See [this article](https://www.rabbitmq.com/blog/2020/06/18/cluster-sizing-and-other-considerations#how-does-redundancy-affect-sizing) for more details.
 
 Further reading:
-- [Kafka design](https://kafka.apache.org/24/documentation.html#design)
-- [RabbitMQ Queues](https://www.rabbitmq.com/docs/queues) and [Streams](https://www.rabbitmq.com/docs/streams)
+- [Kafka design](https://kafka.apache.org/24/documentation.html#design) (official docs)
+- [RabbitMQ Queues](https://www.rabbitmq.com/docs/queues) and [Streams](https://www.rabbitmq.com/docs/streams) (official docs)
+- [Kafka 101](https://highscalability.com/untitled-2/)
 
 ### Databases
 
@@ -171,7 +172,9 @@ See [this chapter](https://www.oreilly.com/library/view/learning-spark-2nd/97814
 
 ## References
 
-- [Video from ByteByteGo](https://www.youtube.com/watch?v=i7twT3x5yv8)
+- [General Advice from ByteByteGo](https://www.youtube.com/watch?v=o-k7h2G3Gco)
+- [A step-by-step guide from ByteByteGo](https://www.youtube.com/watch?v=i7twT3x5yv8)
+- [An example design from ByteByteGo](https://www.youtube.com/watch?v=M4lR_Va97cQ) (note that the trade-offs and reasoning discussion is very important during the interview)
 - [The Twitter Problem](https://www.hiredintech.com/system-design/the-twitter-problem/)
 - [Biggest Mistakes to Avoid](https://www.youtube.com/watch?v=4Q2fokImKfM)
 - [Top K Problem (Heavy Hitters)](https://www.youtube.com/watch?v=kx-XDoPjoHw)
