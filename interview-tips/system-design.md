@@ -6,53 +6,60 @@ Do take a look at [general tips](./general.md) on problem solving first. (TLDR; 
 
 ## Basic Steps
 
-1. Understand requirements and establish scope (5 minutes)
+1. Understand requirements and establish scope (4-5 minutes)
    - High-level objectives (use-cases)
    - Functional requirements (features)
    - Non-functional requirements (scale, latency, etc.)
-1. Capacity estimation and constraints (2 minutes)
-   - Assumptions (e.g. read-write ratio, daily active users)
+1. Capacity estimation and constraints (2-3 minutes)
+   - Assumptions (e.g. read-write ratio, daily active users) (validate these with the interviewer)
    - Compute effective request rates to be handled
 1. High-level design (10 minutes)
-   - Design end-user APIs to meet functional requirements
+   - Basic API design to meet functional requirements
    - Basic components of the system (load balancers, caching systems, DB, etc.)
-   - List required services (e.g., application server, logging service, etc.)
-   - Choices of each component are *not* explored (e.g. MySQL vs. MongoDB)
-1. Low-level/component design (10 minutes)
-   - Component specific APIs or internal design (e.g. database schema)
+   - Basic database design (with rough table schemas)
+   - List required services (e.g., gateway server, logging service, etc.)
+1. Low-level component design: deep-dive (10 minutes)
+   - The interviewer may want to drill down on a specific component or part of the design
+   - Adjust the design to resolve possible bottlenecks (e.g. spikes in traffic, "celebrity" users)
    - Analyze the need for DB indexing, DB replication, DB partitioning
-   - Discuss caching options (e.g. CDN, database caching, client-side caching)
+   - Explore caching options (e.g. CDN, database caching, client-side caching)
    - Do NOT discuss anything outside established scope
-1. Understanding bottlenecks and improvements (5 minutes)
-   - Issues that could happen with a component (e.g. a "celebrity" user)
-   - Modifications that could resolve the issue
-1. Evaluation and wrap-up (5 minutes)
-   - Quick overview of the design and why it can handle the scale.
+1. Evaluation and wrap-up (3-4 minutes)
+   - A quick overview of the design and why it can handle the scale.
+   - Example: a step-by-step walk-through of what happens when a client issues a particular request.
 
 ## Quick Tips
 
-- Breaking the problem into sub-problems is a big part of the interview!
-- Drive the conversation! Make sure to propose the design and suggest which part you could dive deeper into.
-- Make absolutely sure to discuss trade-offs and alternatives!
-- Try to find a part of the system that you're designing which you can draw from your previous experience, and discuss that in more detail (deep-dive).
-- Feel free to let the interviewer know the parts that you're unsure of.
-- Identify parts of the system that could be a bottleneck or a single-point-of-failure.
+- Don't be afraid to ask questions to improve clarity and define a practically limited scope.
+- Separate out different logical components (e.g. "upload service" and "download service") even if they _can_ be served by a single monolith server.
+- **Steer the conversation** to highlight your strengths and experience! Let the interviewer know which part is most interesting to you and would like to focus on (get buy-in).
+- Feel free to admit your weaknesses (the parts that you're unsure of).
+- Try to state non-functional requirements as specific trade-offs (e.g., "for low latency feed retrieval, a few minutes of staleness is okay"), instead of being overly broad (e.g., "system should have low latency").
+- Make absolutely sure to **discuss trade-offs** and alternatives for each of your choices!
+- Be proactive in identifying parts of the system that could be a bottleneck or a single-point-of-failure.
+- Be mindful of the time spent gathering requirements and capacity estimation. After gathering high-level details, only drill down to specifics if necessary for a design decision.
+- During the deep-dive, if the interviewer introduces a change in requirements or constraints (e.g., larger scale), be open to rethink major parts of the architecture.
 
-Sources: [Intro to Architecture and System Design Interviews](https://www.youtube.com/watch?v=ZgdS0EUmn70); [5 Common Mistakes to Avoid](https://www.youtube.com/watch?v=ySfpftMZnoU&list=PLTCrU9sGyburBw9wNOHebv9SjlE4Elv5a&index=29)
+Sources:
+- [Intro to Architecture and System Design Interviews (video)](https://www.youtube.com/watch?v=ZgdS0EUmn70)
+- [5 Common Mistakes to Avoid (video)](https://www.youtube.com/watch?v=ySfpftMZnoU&list=PLTCrU9sGyburBw9wNOHebv9SjlE4Elv5a&index=29)
+- [System Design Requirements Gathering](https://www.hellointerview.com/blog/system-design-requirements)
 
-## Common Non-Functional Requirements
+## Non-Functional Concepts
 
 - Scalability: the ability of a system to handle a growing amount of work.
+  - Example goal: provide high throughput and low latency even during usage spikes
+  - Strategies: more servers + load balancing, data partitioning, caching
 - Availability: the probability that a system is operational at a given time
-  - Example: stay operational even with partial internal network failures
-  - Strategies: load balancing, failover mechanisms (switching to backup systems on failure)
+  - Example goal: stay operational even with partial internal network failures
+  - Strategies: DNS-based load balancing, failover mechanisms (switching to backup systems on failure)
 - Reliability: the probability that a system will produce correct outputs up to some given time
-  - Example: recover from device failures or natural disasters
-  - Strategies: built-in redundancies, replication, error monitoring
-- Performance: throughput, latency
-  - Strategies: horizontal and vertical scaling, data partitioning, caching
+  - Example goal: avoid loss of data due to device failures or natural disasters
+  - Strategies: built-in redundancies, replication, regular back-ups, error monitoring
 - Observability: the ability to collect data about programs' execution, modules' internal states, etc.
+  - Example goal: monitor servers under high load/stress so as to route traffic away
 - Serviceability or Maintainability: the speed with which a system can be repaired or maintained
+  - Example goal: minimize or avoid downtime when upgrading a component
 
 See [list of system quality attributes](https://en.wikipedia.org/wiki/List_of_system_quality_attributes) for a more complete list.
 
@@ -167,14 +174,18 @@ See [this chapter](https://www.oreilly.com/library/view/learning-spark-2nd/97814
 
 ## Miscellaneous Topics
 
-- [Consistent hashing](https://en.wikipedia.org/wiki/Consistent_hashing)
-- [Count-min sketch](https://en.wikipedia.org/wiki/Count%E2%80%93min_sketch), a data structure that can serve as an approx. frequency table of events. This, combined with a min-heap, can be used to keep track of the top-k events (approx.) in a stream of data.
+- [Consistent hashing](https://en.wikipedia.org/wiki/Consistent_hashing), a technique to map inputs to a set of slots, where new slots can be added or existing slots removed with minimal changes to the input-mapping.
+- [Bloom filter](https://en.wikipedia.org/wiki/Bloom_filter), a probabilistic data structure to test whether an element is a member of a set, where false positives are possible but false negatives are not.
+- [Count-min sketch](https://en.wikipedia.org/wiki/Count%E2%80%93min_sketch), a probabilistic data structure that can serve as an approximate frequency table of events. This, combined with a min-heap, can be used to keep track of the top-k events (approx.) in a stream of data.
+- [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog), an approximate algorithm for estimating the number of distinct elements in a large collection (or stream).
 
 ## References
 
 - [General Advice from ByteByteGo](https://www.youtube.com/watch?v=o-k7h2G3Gco)
 - [A step-by-step guide from ByteByteGo](https://www.youtube.com/watch?v=i7twT3x5yv8)
 - [An example design from ByteByteGo](https://www.youtube.com/watch?v=M4lR_Va97cQ) (note that the trade-offs and reasoning discussion is very important during the interview)
+- [The System Design Primer](https://github.com/donnemartin/system-design-primer)
 - [The Twitter Problem](https://www.hiredintech.com/system-design/the-twitter-problem/)
 - [Biggest Mistakes to Avoid](https://www.youtube.com/watch?v=4Q2fokImKfM)
 - [Top K Problem (Heavy Hitters)](https://www.youtube.com/watch?v=kx-XDoPjoHw)
+- [More questions to practice](https://www.educative.io/blog/meta-system-design-interview)
