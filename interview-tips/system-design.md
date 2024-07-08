@@ -166,6 +166,12 @@ Further reading:
   - Graph databases. Example: Neo4j
 - A [data warehouse](https://www.coursera.org/articles/data-warehouse) is a scalable service/solution built on top of some database(s), that provides data analysis capabilities. Example: Google BigQuery, Amazon RedShift
 
+Interesting articles:
+- [When to (and not) use Cassandra](https://towardsdatascience.com/when-to-use-cassandra-and-when-to-steer-clear-72b7f2cede76)
+- [Cassandra vs. MongoDB](https://aws.amazon.com/compare/the-difference-between-cassandra-and-mongodb/)
+- [Scaling Postgres Horizontally](https://stackoverflow.com/a/34840217/2849934)
+- [How to implement sharding in PostgreSQL](https://www.squash.io/tutorial-on-database-sharding-in-postgresql/)
+
 ### Distributed Data Processing
 
 Spark is the successor to the previously hyped concept of "[MapReduce](https://en.wikipedia.org/wiki/MapReduce)". Spark can do "map", "reduce" and so much more! :)
