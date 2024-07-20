@@ -53,7 +53,7 @@ Here's a list of ML-related concepts in random order:
   - Sequence models: CTC Loss, etc.?
 - Regularization: the penalty for model complexity, to keep the model simple.
   - E.g., L1 Regularization (Lasso), L2 Regularization (Ridge), Dropout, etc.
-  - See [extra notes](https://github.com/johncf/learn-log/blob/master/2023-07.md#regularization).
+  - See [extra notes](./2023-07.md#regularization).
 
 ## Model Evaluation
 
@@ -72,19 +72,19 @@ Here's a list of ML-related concepts in random order:
   - i.e. over-fitting, resulting in an inability to generalize properly
 - When training a model, the objective/cost function is the sum of *loss function* and *regularization*.
   - The loss function penalizes the model for incorrect predictions (on the training set), thus encouraging reduction in bias.
-  - The regularization term is responsible for keeping the model simple, thus encouraging reduction in variance. (Also helps [improve training stability](https://github.com/johncf/learn-log/blob/master/2023-07.md#regularization).)
+  - The regularization term is responsible for keeping the model simple, thus encouraging reduction in variance. (Also helps [improve training stability](./2023-07.md#regularization).)
 - Inductive bias ([wiki](https://en.wikipedia.org/wiki/Inductive_bias))
   - A set of assumptions the model uses to make predictions of unseen inputs (think: inter- and extra-polation)
 - Also see [Occam's razor](https://en.wikipedia.org/wiki/Occam's_razor): "The simplest (consistent) explanation is usually the best one."
 
 ## Miscellaneous
 
-- [Confidence estimation](https://github.com/johncf/learn-log/blob/master/2023-05.md#confidence-estimation)
+- [Confidence estimation](./2023-05.md#confidence-estimation)
 - Data and Concept drift
   - Data drift: Input data seen in production has shifted from data used in training
   - Concept drift: Mapping from input to expected output has changed (compared to training)
     - Will need relabeling of original training data or discarding them and collect new data
-- [Feature selection](https://github.com/johncf/learn-log/blob/master/2023-05.md#feature-selection)
-- [Feature extraction](https://github.com/johncf/learn-log/blob/master/2023-05.md#feature-extraction)
-- [Data Visualization](https://github.com/johncf/learn-log/blob/master/2023-05.md#data-visualization)
+- [Feature selection](./2023-05.md#feature-selection)
+- [Feature extraction](./2023-05.md#feature-extraction)
+- [Data Visualization](./2023-05.md#data-visualization)
 - Ethics and Bias: awareness of ethical considerations, such as privacy, fairness, and transparency in model development and deployment. Bias in data or algorithms can lead to unfair or discriminatory outcomes.
