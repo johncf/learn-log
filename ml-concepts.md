@@ -84,6 +84,7 @@ Here's a list of ML-related concepts in random order:
   - Data drift: Input data seen in production has shifted from data used in training
   - Concept drift: Mapping from input to expected output has changed (compared to training)
     - Will need relabeling of original training data or discarding them and collect new data
+- [Feature engineering](./2024-07.md#feature-engineering)
 - [Feature selection](./2023-05.md#feature-selection)
 - [Feature extraction](./2023-05.md#feature-extraction)
 - [Data Visualization](./2023-05.md#data-visualization)
