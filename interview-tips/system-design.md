@@ -4,27 +4,32 @@ Tackling the system design interview.
 
 Do take a look at [general tips](./general.md) on problem solving first. (TLDR; make sure to consider different approaches and discuss its pros and cons, when choosing a design or component.)
 
+Evaluated primarily on 3 aspects:
+- Problem navigation: understanding and deconstruction of the problem; proper time-management
+- Solution design: how well-rounded the solution is; address functional _and_ non-functional requirements
+- Technical communication: how well the ideas are conveyed; show evidence of deeper-knowledge
+
 ## Basic Steps
 
-1. Understand requirements and establish scope (4-5 minutes)
+1. Understand requirements and establish scope (3-4 minutes)
    - High-level objectives (use-cases)
    - Functional requirements (features)
    - Non-functional requirements (scale, latency, etc.)
 1. Capacity estimation and constraints (2-3 minutes)
    - Assumptions (e.g. read-write ratio, daily active users) (validate these with the interviewer)
    - Compute effective request rates to be handled
-1. High-level design (10 minutes)
-   - Basic API design to meet functional requirements
+1. High-level design (7-8 minutes)
    - Basic components of the system (load balancers, caching systems, DB, etc.)
    - Basic database design (with rough table schemas)
    - List required services (e.g., gateway server, logging service, etc.)
-1. Low-level component design: deep-dive (10 minutes)
+   - _Note:_ API design is usually not required (but confirm with the interviewer)
+1. Low-level component design: deep-dive (12-15 minutes)
    - The interviewer may want to drill down on a specific component or part of the design
    - Adjust the design to resolve possible bottlenecks (e.g. spikes in traffic, "celebrity" users)
    - Analyze the need for DB indexing, DB replication, DB partitioning
    - Explore caching options (e.g. CDN, database caching, client-side caching)
    - Do NOT discuss anything outside established scope
-1. Evaluation and wrap-up (3-4 minutes)
+1. Evaluation and wrap-up (2-3 minutes)
    - A quick overview of the design and why it can handle the scale.
    - Example: a step-by-step walk-through of what happens when a client issues a particular request.
 
@@ -37,7 +42,9 @@ Do take a look at [general tips](./general.md) on problem solving first. (TLDR; 
 - Try to state non-functional requirements as specific trade-offs (e.g., "for low latency feed retrieval, a few minutes of staleness is okay"), instead of being overly broad (e.g., "system should have low latency").
 - Make absolutely sure to **discuss trade-offs** and alternatives for each of your choices!
 - Be proactive in identifying parts of the system that could be a bottleneck or a single-point-of-failure.
-- Be mindful of the time spent gathering requirements and capacity estimation. After gathering high-level details, only drill down to specifics if necessary for a design decision.
+- Be mindful of the time spent gathering requirements, capacity estimation and high-level design.
+  - After gathering high-level details, only drill down to specifics if necessary for a design decision.
+  - You need to spare ample time for the deep-dive, so that you can showcase your expertise.
 - During the deep-dive, if the interviewer introduces a change in requirements or constraints (e.g., larger scale), be open to rethink major parts of the architecture.
 
 Sources:
