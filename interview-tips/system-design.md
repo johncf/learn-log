@@ -41,7 +41,7 @@ Evaluated primarily on 3 aspects:
 - Feel free to admit your weaknesses (the parts that you're unsure of).
 - Try to state non-functional requirements as specific trade-offs (e.g., "for low latency feed retrieval, a few minutes of staleness is okay"), instead of being overly broad (e.g., "system should have low latency").
 - Make absolutely sure to **discuss trade-offs** and alternatives for each of your choices!
-- Be proactive in identifying parts of the system that could be a bottleneck or a single-point-of-failure.
+- Be proactive in discussing failure possibilities in every component of the system so as to avoid single-points-of-failures.
 - Be mindful of the time spent gathering requirements, capacity estimation and high-level design.
   - After gathering high-level details, only drill down to specifics if necessary for a design decision.
   - You need to spare ample time for the deep-dive, so that you can showcase your expertise.
@@ -131,9 +131,12 @@ A server sitting between the client and server that may do one or more of the fo
 - Most Recently Used (MRU): The most recently accessed gets evicted! Only useful in niche scenarios.
 - Last In First Out (LIFO): The most recently added gets evicted! Only useful in scenarios where MRU is useful.
 
-### Message Queues
+### Queues and Streams
 
-- To decouple "processing" from "data producers".
+- To decouple "processing" from "data producers", "processing" fault tolerance (retryability).
+  - Note1: If you just want decoupling but not fault tolerance (i.e., losing some data when a processing node crashes is okay), then you can simply use an internal load balancer.
+  - Note2: A distributed data stream (Kafka or Kinesis) should be used when each message needs to go to multiple clients, and/or reading older messages is beneficial (publisher-subscriber model). Be careful about designing topics and partition in a way that can scale up.
+  - Note3: A message queue should be used when a single message goes to a single consumer (FIFO queue model).
 - Use-case: logging to a message stream, with a pub-sub model.
 - Use-case: activity and operational monitoring (page views, searches, etc.) for analytics and reporting.
 - Use-case: stream processing or data-pipeline orchestration.
