@@ -4,10 +4,15 @@ Tackling the system design interview.
 
 Do take a look at [general tips](./general.md) on problem solving first. (TLDR; make sure to consider different approaches and discuss its pros and cons, when choosing a design or component.)
 
-Evaluated primarily on 3 aspects:
+Evaluated primarily on 4 aspects:
 - Problem navigation: understanding and deconstruction of the problem; proper time-management
 - Solution design: how well-rounded the solution is; address functional _and_ non-functional requirements
-- Technical communication: how well the ideas are conveyed; show evidence of deeper-knowledge
+- Technical communication: how well the ideas are conveyed
+- Technical excellence: show evidence of experience, by being able to dive deeper into specific aspects (how many aspects depends on the level)
+
+There are two slightly different types of system design questions:
+1. Product Design: For designing user-facing services (e.g., Uber, YouTube etc.)
+1. Infrastructure Design: For designing (e.g., ad-click aggregator, rate limiter etc.)
 
 ## Basic Steps
 
@@ -15,23 +20,30 @@ Evaluated primarily on 3 aspects:
    - High-level objectives (use-cases)
    - Functional requirements (features)
    - Non-functional requirements (scale, latency, etc.)
-1. Capacity estimation and constraints (2-3 minutes)
-   - Assumptions (e.g. read-write ratio, daily active users) (validate these with the interviewer)
-   - Compute effective request rates to be handled
-1. High-level design (7-8 minutes)
-   - Basic components of the system (load balancers, caching systems, DB, etc.)
-   - Basic database design (with rough table schemas)
-   - List required services (e.g., gateway server, logging service, etc.)
-   - _Note:_ API design is usually not required (but confirm with the interviewer)
-1. Low-level component design: deep-dive (12-15 minutes)
+     - Note: it's always better to quantify these requirements numerically, as relevant to the problem.
+     - Example: "scalable to handle 100M simultaneous users", "less than 1s latency on analytics queries"
+1. Capacity estimation and constraints (0 minutes!)
+   - Ask the interviewer if it's okay to compute request rates, data volume etc., as necessary when we are faced with a choice that requires such numbers.
+1. This step depends on the type of question (3-4 minutes):
+   a. Product Design: Core Entities and Basic APIs
+      - List/define the data entities that we'll be using throughout our system, and the basic user-facing APIs so as to satisfy the functional requirements.
+   b. Infrastructure Design: System Interface and Data Flow
+      - At a high-level, list what are the inputs to the system, and what are the expected outputs.
+      - At a high-level, what are the steps in which the inputs can be transformed into the outputs.
+1. High-level design (4-5 minutes)
+   - Basic components of the system (API gateways, load balancers, services, databases, etc.)
+   - The high-level design should meet all functional requirements, and should serve as a good starting point for the deep-dives where we'll meed non-functional requirements.
+1. Deep-dives (15-20 minutes)
    - The interviewer may want to drill down on a specific component or part of the design
    - Adjust the design to resolve possible bottlenecks (e.g. spikes in traffic, "celebrity" users)
-   - Analyze the need for DB indexing, DB replication, DB partitioning
+   - Discuss how failures or crashes would be handled (maybe also about monitoring systems)
+   - Discuss the need for a streaming architecture, batch processing
+   - Discuss different choices of DBs, and the need for replication, indexing, partitioning, etc.
    - Explore caching options (e.g. CDN, database caching, client-side caching)
    - Do NOT discuss anything outside established scope
 1. Evaluation and wrap-up (2-3 minutes)
-   - A quick overview of the design and why it can handle the scale.
-   - Example: a step-by-step walk-through of what happens when a client issues a particular request.
+   - A quick overview of the design and why it can handle the scale, is fault-tolerant, etc.
+   - Perhaps a step-by-step walk-through of what happens when a client issues a particular request.
 
 ## Quick Tips
 
@@ -46,11 +58,14 @@ Evaluated primarily on 3 aspects:
   - After gathering high-level details, only drill down to specifics if necessary for a design decision.
   - You need to spare ample time for the deep-dive, so that you can showcase your expertise.
 - During the deep-dive, if the interviewer introduces a change in requirements or constraints (e.g., larger scale), be open to rethink major parts of the architecture.
+- Better to specify the relevant data model right next to databases, data stores, queues etc.
 
 Sources:
+- [A great infrastructure design example (video)](https://www.youtube.com/watch?v=Zcv_899yqhI)
+- [A great product design example (video)](https://www.youtube.com/watch?v=_UZ1ngy-kOI)
 - [Intro to Architecture and System Design Interviews (video)](https://www.youtube.com/watch?v=ZgdS0EUmn70)
-- [5 Common Mistakes to Avoid (video)](https://www.youtube.com/watch?v=ySfpftMZnoU&list=PLTCrU9sGyburBw9wNOHebv9SjlE4Elv5a&index=29)
 - [System Design Requirements Gathering](https://www.hellointerview.com/blog/system-design-requirements)
+- [5 Common Mistakes to Avoid (video)](https://www.youtube.com/watch?v=ySfpftMZnoU) (partially disagree with #2)
 
 ## Non-Functional Concepts
 
@@ -155,6 +170,7 @@ A server sitting between the client and server that may do one or more of the fo
 Further reading:
 - [Kafka design](https://kafka.apache.org/24/documentation.html#design) (official docs)
 - [RabbitMQ Queues](https://www.rabbitmq.com/docs/queues) and [Streams](https://www.rabbitmq.com/docs/streams) (official docs)
+- [Kafka deep dive for system design (video)](https://www.youtube.com/watch?v=DU8o-OTeoCc)
 - [Kafka 101](https://highscalability.com/untitled-2/)
 
 ### Databases
@@ -181,6 +197,7 @@ Interesting articles:
 - [Cassandra vs. MongoDB](https://aws.amazon.com/compare/the-difference-between-cassandra-and-mongodb/)
 - [Scaling Postgres Horizontally](https://stackoverflow.com/a/34840217/2849934)
 - [How to implement sharding in PostgreSQL](https://www.squash.io/tutorial-on-database-sharding-in-postgresql/)
+- [Redis Deep Dive (video)](https://www.youtube.com/watch?v=fmT5nlEkl3U)
 
 ### Distributed Data Processing
 
