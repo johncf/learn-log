@@ -25,9 +25,9 @@ There are two slightly different types of system design questions:
 1. Capacity estimation and constraints (0 minutes!)
    - Ask the interviewer if it's okay to compute request rates, data volume etc., as necessary when we are faced with a choice that requires such numbers.
 1. This step depends on the type of question (3-4 minutes):
-   a. Product Design: Core Entities and Basic APIs
+   1. Product Design: Core Entities and Basic APIs
       - List/define the data entities that we'll be using throughout our system, and the basic user-facing APIs so as to satisfy the functional requirements.
-   b. Infrastructure Design: System Interface and Data Flow
+   1. Infrastructure Design: System Interface and Data Flow
       - At a high-level, list what are the inputs to the system, and what are the expected outputs.
       - At a high-level, what are the steps in which the inputs can be transformed into the outputs.
 1. High-level design (4-5 minutes)
